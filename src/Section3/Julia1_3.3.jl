@@ -70,8 +70,17 @@ print(formletter("Mr. Patel",letter1))
 # Operators are functions
 println(+(1,2,3,π)) #
 ⊻(true,true) # xor(true,true) ⊻ =Char(0x22bb)
+(1>2) ⊻ (1<2)
+true ⊻ false
+true ⊻ true
+false ⊻ false
 
+false || false
+
+ga = x -> Float64(x)*Float64(x)
+gb(x) = Float64(x)^2
 # map maps a function to each element of an array
+v0 = map(ga, [1,2,3])
 v=map(round,[1.5,3.3,2.7])
 v=round.([1.5,3.3,2.7])
 # MATH LIBRARY
@@ -97,31 +106,41 @@ v=round.([1.5,3.3,2.7])
 # sqrt hypot
 
 # string library
-parse(Type,s,base=10) # interprets string as numbers
+# parse(Type,s,base=10) # interprets string as numbers
 # base defaults to 10 if not specified
 parse(Int,"21",base=5)
+parse(Int,"1001101101101",base=2)
+parse(Int,"FF",base=16)
 # T is specified type
 # s is string to be be parsed
 # This is the basic string->number conversion routine.
 st="12.34"
 x=(parse(Float64,st))
 
+
+
+
 # Plotting: both Gadfly and DataFrames comes
 #  with the JuliaPro package
 using Gadfly   # plotter frontend
 using DataFrames
-df=DataFrame(primes=[2, 3, 5, 7, 11, 13, 17, 19, 23, 29],
- febn=[1, 1, 2, 3, 5, 8, 13, 21, 34, 55])
+df=DataFrame(primes=[2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71],
+ febn=[1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765])
 plot(df, x=:primes, y=:febn, Geom.point, Geom.line)
 
+A = Matrix(df)
+plot(A,x=Col.value(1),y=Col.value(2),Geom.point, Geom.line)
+
+prim
+
 # System Library
-println(Sys.CPU_CORES)
+println(Sys.CPU_THREADS)
 println(Sys.WORD_SIZE)
 println(Sys.MACHINE)
 # and many others
 
 # Base math library
-base(base,n,pad) # convert an integer n to string
+#base(base,n,pad) # convert an integer n to string
 #    length pad, in base, leading zeros
 println(base(5,16,4)) # base 5, int 16, pad to 4 digits
 println(bits(255))    # converts to a binary string

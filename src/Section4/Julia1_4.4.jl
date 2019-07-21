@@ -44,6 +44,7 @@ function create_sonar_data_arrays()
     end
     close(f1)
 end
+
 create_sonar_data_arrays()
 #
 ###
@@ -97,6 +98,7 @@ function train(inputsets,weights,bias)
     end
     return (save_weights,save_bias)
 end
+
 (weights,bias)=train(inputsets,weights,bias)
 
 #

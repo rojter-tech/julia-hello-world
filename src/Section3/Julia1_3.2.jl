@@ -52,8 +52,8 @@ end
 
 # nested <for> loops for matrices and in general
 M=Array{Int,2}(undef,3,3)
-(d1,d2)=size(M)
-for i=1:d1, j=1:d2
+(m,n)=size(M)
+for i=1:m, j=1:n
     global M
     M[i,j]=i*j
 end
@@ -74,7 +74,13 @@ fsqrt(-4)
 # there is a list of 35 Built-in exceptions
 #  but you can add your own if you don't find
 #  it on the list
-f(x)= x≥0 ? exp(-x) : throw(DomainError(x, "arg must be non-negative"))
+x = 2
+f(x) = x≥0 ? exp(-x) : throw(DomainError(x, "arg must be non-negative"))
 #
 f(-1)
 f(1)
+
+sq(x) = x≥0 ? sqrt(x) : sqrt(Complex(x))
+
+sq(-16)
+sq(16)

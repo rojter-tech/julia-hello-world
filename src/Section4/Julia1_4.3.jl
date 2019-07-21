@@ -3,7 +3,7 @@
 # you need to know your training/test data
 # it generally doesn't come in a ready-to-use form
 # This sonar data is 60 magnitudes in a time sequence
-#  followed by a letter M=mine and R =rock
+# followed by a letter M=mine and R =rock
 # read in training data
 # Create Sonar Data Set
 using Random
@@ -17,6 +17,7 @@ trainlabel=Array{Int32}(undef,trainln)
 testdata=Array{Float64}(undef,testln,burstln)
 testlabel=Array{Int32}(undef,testln)
 #
+
 function create_sonar_data_arrays()
     global traindata, trainlabel, testdata, testlabel
     sdata=Array{Float64}(undef,numsonar,burstln)
@@ -28,7 +29,7 @@ function create_sonar_data_arrays()
         stype[i]=Char(sonarlist[burstln+1][1])
         sdata[i,:]=parse.(Float64,sonarlist[1:burstln])
     end
-    # randonize and partition training from test data
+    # randomize and partition training from test data
     seq=randperm(numsonar) # create random index sequence
     for i=1:numsonar
         sonardata[:]=sdata[seq[i],:]

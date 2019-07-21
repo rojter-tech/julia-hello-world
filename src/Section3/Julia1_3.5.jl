@@ -42,3 +42,4 @@ y=myappend([1,2,3],4)
 w=myappend(["stop","forword","slow"],"reverse")
 
 w[3]
+w[4]

@@ -25,9 +25,8 @@ end
 
 # one liner conditional borrowed from C
 # cond? true-expr:false-expr
-x=-2
-y = x<0 ? -x : x  # gets absolute value of x
-# same as y=abs(x)
+x=2
+y = x<0 ? "left" : "right" # chooses "left" if true, otherwise "right"
 
 # other one liner conditional executions
 # if <cond>; <expression>; end can be reduced to:
